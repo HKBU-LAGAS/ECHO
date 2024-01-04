@@ -1,0 +1,9 @@
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.1 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.2 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.3 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.4 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.5 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.6 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.7 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.8 
+python3 node2vec_main.py --data $1 --EC ERK --alpha 0.9 

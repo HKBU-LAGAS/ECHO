@@ -1,0 +1,10 @@
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.1 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.2 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.3 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.4 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.5 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.6 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.7 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.8 --stype $1 
+python main.py --model GCN --dataset Chameleon --lr 5e-3 --weight_decay 0.0 --dropout 0.0 --num_layers 2 --del_rate 0.9 --stype $1 

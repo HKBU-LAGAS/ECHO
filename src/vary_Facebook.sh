@@ -1,0 +1,9 @@
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.1
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.2
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.3
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.4
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.5
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.6
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.7
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.8
+python spec_cluster.py --data Facebook --k 20 --EC ERK --alpha 0.9
