@@ -1,2 +1,1 @@
-# EdgeRAKE
-EdgeRAKE: An Effective Edge Centrality for Graph Analysis
+# EdgeRAKE: An Effective Edge Centrality for Graph Analysis
