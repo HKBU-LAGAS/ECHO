@@ -111,7 +111,7 @@ def cal_ERK(A, alpha=0.5):
     E = nx.incidence_matrix(G, edgelist=G.edges()).T
     F = preprocessing.normalize(E, norm='l1', axis=1)
     B = preprocessing.normalize(E, norm='l1', axis=0)
-    P = F.dot(B.T)
+    #P = F.dot(B.T)
     
     
     T = 150
