@@ -1,4 +1,4 @@
-# EdgeRAKE: An Effective Edge Centrality for Graph Analysis
+# Effective Edge Ranking via Random Walk with Restart
 
 ### Requirements
 - Python 3.6.8 or above
