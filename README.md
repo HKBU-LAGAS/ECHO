@@ -1,4 +1,4 @@
-# Effective Edge Ranking via Random Walk with Restart
+# ECHO: Edge Centrality via Neighborhood-based Optimization
 
 ### Requirements
 - Python 3.6.8 or above
