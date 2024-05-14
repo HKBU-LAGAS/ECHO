@@ -32,6 +32,7 @@ if __name__ == '__main__':
     parser.add_argument('--del_rate', type = float, default = 0.1, help = 'the sample rate of sparsifier')
     parser.add_argument('--stype', type = str, default ='ER' , help = 'the type of graph sparsifier, rand, ER, ERH')
     parser.add_argument('--alpha', type = float, default = 0.5, help = 'decay factor')
+    parser.add_argument('--eps', type = float, default = 1e-45, help = 'error threshold')
     
     parser.add_argument('--weighted', type = bool, default =   False , help = 'weighted adj or not')
     
