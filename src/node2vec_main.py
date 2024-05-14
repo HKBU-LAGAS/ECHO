@@ -55,6 +55,7 @@ def parse_args():
 	                    help='Inout hyperparameter. Default is 1.')
 
     parser.add_argument('--alpha', default=0.5, type=float, help='decay factor')
+    parser.add_argument('--eps', default=1e-45, type=float, help='error threshold')
     return parser.parse_args()
 
 def read_graph(args):
@@ -139,7 +140,7 @@ def main(args):
     elif args.EC=='GTOM':
         EC = cal_GTOM(A)
     elif args.EC=='ERK':
-        EC = cal_ERK(A, args.alpha)
+        EC = cal_ECHO(A, args.alpha, args.eps)
 
     xs = sorted(EC.items(), key=lambda item: item[1], reverse=False)
     num = int(0.1*len(xs))
