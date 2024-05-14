@@ -107,7 +107,7 @@ def run(args):
         EC = cal_EP(A)
     elif args.EC=='EK':
         EC = cal_EK(A)
-    elif args.EC=='ERK':
+    elif args.EC=='ECHO':
         EC = cal_ECHO(A, args.alpha, args.eps)
     elif args.EC=='GTOM':
         EC = cal_GTOM(A)
