@@ -4,4 +4,4 @@ python spec_cluster.py --data Facebook --k 20 --EC EB
 python spec_cluster.py --data Facebook --k 20 --EC EP
 python spec_cluster.py --data Facebook --k 20 --EC EK
 python spec_cluster.py --data Facebook --k 20 --EC GTOM
-python spec_cluster.py --data Facebook --k 20 --EC ERK
+python spec_cluster.py --data Facebook --k 20 --EC ECHO
