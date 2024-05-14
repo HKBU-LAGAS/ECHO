@@ -150,7 +150,7 @@ def cal_EC(dataset, stype, alpha, eps):
         EC = cal_EP(A)
     elif stype=='EK':
         EC = cal_EK(A)
-    elif stype=='ERK':
+    elif stype=='ECHO':
         EC = cal_ECHO(A, alpha, eps)
     elif stype=='GTOM':
         EC = cal_GTOM(A)
