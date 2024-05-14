@@ -3,6 +3,72 @@ from scipy.sparse import csgraph, csr_matrix, eye, vstack
 from scipy import linalg
 import networkx as nx
 from sklearn import preprocessing
+import math
+
+def SimpleISM(F, B, e, T, alpha):
+    z = e.copy()
+    for t in range(T):
+        z = alpha*(z.dot(F)).dot(B.T) + e
+
+    z = (1-alpha)*z
+
+def AdaptiveISM(F, B, e, T, alpha, eps):
+    y = e.copy()
+    z = (1-alpha)*y.copy()
+    for t in range(T):
+        y = alpha*(y.dot(F)).dot(B)
+        z = z + (1-alpha)*y
+
+        if (y.data <= eps).all():
+            break
+
+    return z
+
+def DEV(F, B, e, T, alpha, m):
+    z = e.copy()
+    evec = csr_matrix(np.array([1.0]*m))
+    for i in range(T):
+        z = alpha*(z.dot(F)).dot(B) + (1-alpha)*e
+
+    return z
+
+def cal_ECHO(A, alpha=0.5, eps=1e-45, method):
+    n = A.shape[0]
+    G=nx.from_scipy_sparse_matrix(A)
+    G = G.to_undirected()
+    E = nx.incidence_matrix(G, edgelist=G.edges()).T
+    F = preprocessing.normalize(E, norm='l1', axis=1)
+    B = preprocessing.normalize(E, norm='l1', axis=0)
+    #P = F.dot(B.T)
+    
+    
+    T = int(math.log(1.0/eps)/math.log(1.0/alpha)) #150
+    m = P.shape[0]
+    #e = csr_matrix(np.ones(m)*1.0/m)
+    e = csr_matrix(np.ones(m))
+    i=0
+    for (u,v) in G.edges():
+        e[0,i] = 1.0/np.sqrt(G.degree[u]+G.degree[v])
+        i+=1
+        
+    if method=='adaptive':
+        AdaptiveISM(F, B, e, T, alpha, eps)
+    elif method=='DEV':
+        DEV(F, B, e, T, alpha, m)
+    else:
+        SimpleISM(F, B, e, T, alpha)
+
+    z = z.todense()
+    ECHO ={}
+    i=0
+    for (u,v) in G.edges():
+        ep_uv = z[0,i]#*np.sqrt(G.degree[u]*G.degree[v])
+        ECHO[(u,v)] = ep_uv
+        ECHO[(v,u)] = ep_uv
+        i+=1
+
+    return ECHO
+
 
 def cal_ER(A):
     L, d = csgraph.laplacian(A, return_diag=True, normed=False)
@@ -103,46 +169,6 @@ def cal_EK(A):
         EK[(u,v)] = ek_uv
 
     return EK
-
-def cal_ERK(A, alpha=0.5):
-    n = A.shape[0]
-    G=nx.from_scipy_sparse_matrix(A)
-    G = G.to_undirected()
-    E = nx.incidence_matrix(G, edgelist=G.edges()).T
-    F = preprocessing.normalize(E, norm='l1', axis=1)
-    B = preprocessing.normalize(E, norm='l1', axis=0)
-    #P = F.dot(B.T)
-    
-    
-    T = 150
-    m = P.shape[0]
-    #e = csr_matrix(np.ones(m)*1.0/m)
-    e = csr_matrix(np.ones(m))
-    i=0
-    for (u,v) in G.edges():
-        e[0,i] = 1.0/np.sqrt(G.degree[u]+G.degree[v])
-        i+=1
-        
-    #alpha=0.5
-    ppr = e.copy()
-    for t in range(T):
-        #ppr = alpha*ppr.dot(P) + e
-        ppr = alpha*(ppr.dot(F)).dot(B.T) + e
-
-    ppr = (1-alpha)*ppr
-
-    print(ppr.shape,ppr)
-
-    EPP ={}
-    i=0
-    for (u,v) in G.edges():
-        ep_uv = ppr[0,i]#*np.sqrt(G.degree[u]*G.degree[v])
-        EPP[(u,v)] = ep_uv
-        EPP[(v,u)] = ep_uv
-        i+=1
-
-    return EPP
-
 
 def cal_GTOM(A):
     row, col = A.nonzero()
