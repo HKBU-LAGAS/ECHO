@@ -23,8 +23,8 @@ $ sh run_n2v.sh Blogcatalog
 
 Node classification using GCN:
 ```
-$ sh run_GCN_Cora.sh ERK
-$ sh run_GCN_Chameleon.sh ERK
+$ sh run_GCN_Cora.sh ECHO
+$ sh run_GCN_Chameleon.sh ECHO
 ```
 
 ### Parameter Analysis
