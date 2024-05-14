@@ -131,7 +131,7 @@ def get_dataset(root : str, name : str):
 
 	return dataset
 
-def cal_EC(dataset, stype, alpha):
+def cal_EC(dataset, stype, alpha, eps):
     data = dataset.data
     edges = data.edge_index.numpy()
     rows = edges[0]
@@ -151,7 +151,7 @@ def cal_EC(dataset, stype, alpha):
     elif stype=='EK':
         EC = cal_EK(A)
     elif stype=='ERK':
-        EC = cal_ERK(A, alpha)
+        EC = cal_ECHO(A, alpha, eps)
     elif stype=='GTOM':
         EC = cal_GTOM(A)
 
