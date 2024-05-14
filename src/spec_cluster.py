@@ -108,7 +108,7 @@ def run(args):
     elif args.EC=='EK':
         EC = cal_EK(A)
     elif args.EC=='ERK':
-        EC = cal_ERK(A, args.alpha)
+        EC = cal_ECHO(A, args.alpha, args.eps)
     elif args.EC=='GTOM':
         EC = cal_GTOM(A)
 
@@ -150,6 +150,7 @@ def main():
 
     parser.add_argument('--k', default=0, type=int, help='#cluster')
     parser.add_argument('--alpha', default=0.5, type=float, help='decay factor')
+    parser.add_argument('--eps', default=1e-45, type=float, help='error threshold')
 
     args = parser.parse_args()
 
