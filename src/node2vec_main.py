@@ -139,7 +139,7 @@ def main(args):
         EC = cal_EK(A)
     elif args.EC=='GTOM':
         EC = cal_GTOM(A)
-    elif args.EC=='ERK':
+    elif args.EC=='ECHO':
         EC = cal_ECHO(A, args.alpha, args.eps)
 
     xs = sorted(EC.items(), key=lambda item: item[1], reverse=False)
