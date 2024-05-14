@@ -32,7 +32,7 @@ def DEV(F, B, e, T, alpha, m):
 
     return z
 
-def cal_ECHO(A, alpha=0.5, eps=1e-45, method):
+def cal_ECHO(A, alpha=0.5, eps=1e-45, method='simple'):
     n = A.shape[0]
     G=nx.from_scipy_sparse_matrix(A)
     G = G.to_undirected()
