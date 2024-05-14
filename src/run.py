@@ -96,7 +96,7 @@ def run(args, verbose: bool = True):
     
     if args['del_rate']>0:
         print("deleting %f edges"%(args['del_rate']))
-        EC = cal_EC(dataset,args['stype'],args['alpha'])
+        EC = cal_EC(dataset,args['stype'],args['alpha'],args['eps'])
         dataset = del_edges(dataset, args['del_rate'], EC, args['stype'])
             
         
